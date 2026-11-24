@@ -225,9 +225,7 @@ h1 {
   padding-top: 1.25rem;
 }
 
-.ledger > h2,
-.tech-heading,
-.tag-index h2 {
+.ledger > h2 {
   margin: 0.15rem 0 0;
   font-size: 0.72rem;
   font-weight: 600;
@@ -331,9 +329,11 @@ h1 {
   margin: 0.4rem 0 0;
 }
 
-.tags,
-.tag-index ul,
-.tag-index-list,
+.technologies {
+  margin: 1.35rem 0 0;
+  color: var(--muted);
+}
+
 .plain-list {
   display: flex;
   flex-wrap: wrap;
@@ -341,14 +341,6 @@ h1 {
   list-style: none;
   margin: 0.85rem 0 0;
   padding: 0;
-}
-
-.tag-index {
-  margin-top: 1.5rem;
-}
-
-.tech-heading {
-  margin-top: 2rem;
 }
 
 .prose {

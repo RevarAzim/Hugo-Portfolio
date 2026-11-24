@@ -4,14 +4,10 @@ baseURL = "https://revarazim.github.io/Hugo-Portfolio/"
 title = "Revar Azim Muhammed"
 locale = "en-us"
 enableRobotsTXT = true
-disableKinds = ["RSS"]
+disableKinds = ["RSS", "taxonomy", "term"]
 
 [params]
   description = "Software engineer and Flutter developer in Sulaymaniyah, Iraq."
-
-# Tag pages live at /tags/ and /tags/<technology>/.
-[taxonomies]
-  tag = "tags"
 
 # pageRef lets Hugo mark the current item. url is the fallback path.
 # Paths have no leading slash except Home, so a subfolder baseURL still works.

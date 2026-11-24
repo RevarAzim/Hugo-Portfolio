@@ -4,7 +4,7 @@ description: A low-latency chess clock in Google Play closed testing, built with
 dek: Chess clock application
 status: Google Play (Closed Testing)
 weight: 3
-tags:
+technologies:
   - Flutter
   - Feature-First
 ---

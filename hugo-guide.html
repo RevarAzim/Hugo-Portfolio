@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hugo guide for this portfolio</title>
+  <style>
+    @font-face {
+      font-family: "Instrument Sans";
+      font-style: normal;
+      font-weight: 400;
+      src: url("static/fonts/instrument-sans-400.ttf") format("truetype");
+    }
+    @font-face {
+      font-family: "Instrument Sans";
+      font-style: normal;
+      font-weight: 600;
+      src: url("static/fonts/instrument-sans-600.ttf") format("truetype");
+    }
+    :root {
+      --paper: #f3f2ee;
+      --ink: #1c1c1b;
+      --muted: #3a3834;
+      --line: #7f7b72;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--paper); }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Instrument Sans", "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      border-top: 3px solid var(--ink);
+    }
+    .wrap { width: min(44rem, calc(100% - 2.5rem)); margin: 0 auto; padding: 2.5rem 0 4rem; }
+    h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.05; letter-spacing: -0.04em; margin: 0 0 0.6rem; }
+    h2 { font-size: 1.45rem; letter-spacing: -0.03em; margin: 2.6rem 0 0.6rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+    h3 { font-size: 1.1rem; margin: 1.6rem 0 0.4rem; }
+    p, li { max-width: 40rem; }
+    a { color: inherit; }
+    code, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; }
+    code { background: #e7e4dc; padding: 0.05em 0.3em; }
+    pre {
+      background: #1c1c1b;
+      color: #f3f2ee;
+      padding: 0.9rem 1rem;
+      overflow-x: auto;
+      line-height: 1.45;
+    }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0 1.4rem; font-size: 0.98rem; }
+    th, td { text-align: left; vertical-align: top; border-top: 1px solid var(--line); padding: 0.55rem 0.7rem 0.55rem 0; }
+    th { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .lede { font-size: 1.15rem; }
+    .note { color: var(--muted); }
+    nav ol { padding-left: 1.2rem; }
+    nav li { margin: 0.2rem 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="note">Local notes. This file is not part of the website.</p>
+    <h1>Hugo, and how this site works</h1>
+    <p class="lede">Hugo is a program that reads your text files and fills in HTML templates. The result is a folder of ordinary web pages. Nothing on the site is a database or a running app.</p>
+    <p>You do not need to learn all of Hugo. For this project you mostly edit a few text files, then push them to GitHub. GitHub builds the site and publishes it.</p>
+
+    <nav aria-label="Contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#idea">The one idea</a></li>
+        <li><a href="#tasks">Things you will actually do</a></li>
+        <li><a href="#map">Where each kind of fact lives</a></li>
+        <li><a href="#page">How one page is built</a></li>
+        <li><a href="#files">The folders</a></li>
+        <li><a href="#words">Words Hugo uses</a></li>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#publish">How publishing works</a></li>
+        <li><a href="#rules">Rules for this project</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="idea">The one idea</h2>
+    <p>A normal website is HTML you write by hand. Hugo splits that into two parts:</p>
+    <ol>
+      <li><strong>Your facts.</strong> Your name, jobs, schools, and project write-ups. These are plain text.</li>
+      <li><strong>The shape of the page.</strong> Where the name goes, how the menu looks, how a project card is drawn. These are templates.</li>
+    </ol>
+    <p>When you run Hugo, it loops over the facts and stamps them into the templates. The finished HTML lands in a folder called <code>public/</code>. You never edit <code>public/</code>. The next build overwrites it.</p>
+    <p>This site has no theme from the internet. Every template is in <code>layouts/</code>, and the CSS is in <code>assets/css/</code>. If the page looks a certain way, the reason is a file in this project.</p>
+
+    <h2 id="tasks">Things you will actually do</h2>
+
+    <h3>Change your name, summary, email, phone, or links</h3>
+    <p>Open <code>data/profile.yaml</code>. Change the text after the colon. Keep the quotes around the phone number. <code>phone</code> is what people read. <code>phone_href</code> is the tap-to-call link, and it must start with <code>tel:</code>.</p>
+    <pre><code>email: revar.azim@gmail.com
+phone: "0770 966 4486"
+phone_href: "tel:+9647709664486"
+linkedin: https://linkedin.com/in/revar-azim
+github: https://github.com/RevarAzim</code></pre>
+    <p>The home page, the contact page, and the footer all read this one file. Change it once and all three update.</p>
+
+    <h3>Change a job</h3>
+    <p>Open <code>data/experience.yaml</code>. Each job starts with a dash. The bullets under <code>points:</code> are the sentences on the page. <code>start_label</code> and <code>end_label</code> are the dates people see. <code>start</code> and <code>end</code> are the machine-readable versions, like <code>2025-11</code>.</p>
+    <p><code>project: anyprompts</code> adds a link to <code>content/projects/anyprompts.md</code>. The value is the filename without <code>.md</code>.</p>
+
+    <h3>Change education, skills, or spoken languages</h3>
+    <ul>
+      <li><code>data/education.yaml</code> for the degree.</li>
+      <li><code>data/skills.yaml</code> for the groups on the skills page. Add a line under <code>items:</code>, with a dash and a space.</li>
+      <li><code>data/languages.yaml</code> for Kurdish, English, and Arabic.</li>
+    </ul>
+    <p>These lists are the CV. A technology you used on one project belongs on that project, not automatically in the skills list.</p>
+
+    <h3>Edit a project you already have</h3>
+    <p>Projects are Markdown files in <code>content/projects/</code>. The top of the file, between the <code>---</code> lines, is called front matter. Hugo reads it as data. Everything under the second <code>---</code> is the article.</p>
+    <pre><code>---
+title: Signalize
+description: One sentence for the project list and for Google.
+dek: A short line under the title
+status: Under development
+weight: 1
+technologies:
+  - Flutter
+  - Dart
+---
+
+The long description starts here. This part is Markdown.</code></pre>
+    <ul>
+      <li><code>title</code> is the project name.</li>
+      <li><code>description</code> is the short text on the project list, and the sentence search engines use.</li>
+      <li><code>dek</code> is the line under the title on the project page.</li>
+      <li><code>status</code> is a label such as “Under development”.</li>
+      <li><code>weight</code> sets the order. Smaller numbers come first. Signalize is <code>1</code>, then AnyPrompts <code>2</code>, Sat <code>3</code>, UniLink <code>4</code>.</li>
+      <li><code>technologies</code> is a list of names. The page prints them as one line of text. They are not links, and there is no page for each technology.</li>
+    </ul>
+    <p>In the article, a line that starts with <code>##</code> is a heading. A line that starts with <code>-</code> is a bullet. <code>[TechnoBase internship](/experience/)</code> is a link. The text in brackets is what people see. The path in parentheses is where it goes. Write site links as <code>/experience/</code>, with a leading slash. A small template rewrites that so it still works inside <code>/Hugo-Portfolio/</code>.</p>
+
+    <h3>Add a new project</h3>
+    <p>Copy <code>content/projects/signalize.md</code> to a new file, for example <code>content/projects/my-app.md</code>. The filename becomes the address: <code>/projects/my-app/</code>. Use lowercase and hyphens. Then replace the title, description, technologies, and article with the real project. Give it the next <code>weight</code>.</p>
+    <p>You can also run this from the project folder:</p>
+    <pre><code>hugo new content/projects/my-app.md</code></pre>
+    <p>That creates a file with <code>draft: true</code>. A draft is hidden from the live site. Delete the line <code>draft: true</code> when you want it published. Until you do, you can still see it locally with the draft preview command in the Commands section below.</p>
+
+    <h3>Change the menu</h3>
+    <p>The menu is not in the HTML. It is the list at the bottom of <code>hugo.toml</code>. Each item has a <code>name</code> (the word in the menu), a <code>url</code>, and a <code>weight</code> (left-to-right order). The current page is bold with a thicker underline. That comes from <code>layouts/partials/nav.html</code>, which compares the menu item with the page you are on.</p>
+
+    <h3>Change colours or type</h3>
+    <p>Open <code>assets/css/main.css</code>. The colours are the four variables at the top: paper background, ink, muted text, and the hairline. Print rules are a separate file, <code>assets/css/print.css</code>. Hugo compresses both and gives them a fingerprint in the filename so browsers do not keep an old copy.</p>
+    <p>Home is the page that prints as the CV. The print stylesheet hides the menu. On the home page it also hides the footer, because the contact details are already at the top.</p>
+
+    <h2 id="map">Where each kind of fact lives</h2>
+    <table>
+      <thead>
+        <tr><th>If you want to change</th><th>Edit this</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Name, role, city, summary, email, phone, GitHub, LinkedIn</td><td><code>data/profile.yaml</code></td></tr>
+        <tr><td>Jobs</td><td><code>data/experience.yaml</code></td></tr>
+        <tr><td>Degree</td><td><code>data/education.yaml</code></td></tr>
+        <tr><td>Skill groups</td><td><code>data/skills.yaml</code></td></tr>
+        <tr><td>Spoken languages</td><td><code>data/languages.yaml</code></td></tr>
+        <tr><td>A project’s story</td><td><code>content/projects/the-name.md</code></td></tr>
+        <tr><td>Page titles used by Google</td><td>The <code>description</code> line in that page’s Markdown file</td></tr>
+        <tr><td>The menu</td><td><code>hugo.toml</code></td></tr>
+        <tr><td>The look</td><td><code>assets/css/main.css</code></td></tr>
+        <tr><td>The address of the live site</td><td><code>baseURL</code> in <code>hugo.toml</code></td></tr>
+      </tbody>
+    </table>
+    <p>The About, Experience, Skills, and Contact pages do not store the CV in their Markdown bodies. Those files only set the page title and description. The visible text comes from the <code>data/</code> files, through a template.</p>
+
+    <h2 id="page">How one page is built</h2>
+    <p>Every HTML page starts from <code>layouts/_default/baseof.html</code>. That file is the skeleton: the skip link, the header, <code>&lt;main&gt;</code>, and the footer. The middle is a hole named <code>main</code>. Each page template fills that hole.</p>
+    <p>Pieces that repeat are partials, in <code>layouts/partials/</code>:</p>
+    <ul>
+      <li><code>head.html</code> is the title, description, canonical link, and Open Graph tags. It also attaches the CSS.</li>
+      <li><code>nav.html</code> prints the menu from <code>hugo.toml</code>.</li>
+      <li><code>experience-list.html</code>, <code>education-list.html</code>, <code>skills-list.html</code>, and <code>languages-list.html</code> loop over the YAML files.</li>
+      <li><code>contact-links.html</code> prints email, phone, LinkedIn, and GitHub. On the contact page it adds icons and puts each one on its own line.</li>
+      <li><code>project-card.html</code> is one project in a list.</li>
+    </ul>
+    <p>A template line looks like this:</p>
+    <pre><code>{{ hugo.Data.profile.name }}</code></pre>
+    <p>The <code>{{ }}</code> means “print this value”. <code>hugo.Data.profile</code> is the contents of <code>data/profile.yaml</code>. <code>.name</code> is the <code>name:</code> field.</p>
+    <p>A loop looks like this:</p>
+    <pre><code>{{ range hugo.Data.skills }}
+  {{ .group }}
+{{ end }}</code></pre>
+    <p><code>range</code> means “once for each item”. Inside the loop, <code>.</code> is the current item. <code>{{ end }}</code> closes the loop. You can ignore the rest of the template syntax until you want to change the layout itself.</p>
+    <p>Which template Hugo picks:</p>
+    <ul>
+      <li>The home page is <code>layouts/index.html</code>, fed by <code>content/_index.md</code>.</li>
+      <li>A page can ask for a template by name. <code>content/about.md</code> says <code>layout: about</code>, so Hugo uses <code>layouts/_default/about.html</code>.</li>
+      <li>Anything in <code>content/projects/</code> uses <code>layouts/projects/list.html</code> for the list and <code>layouts/projects/single.html</code> for one project.</li>
+    </ul>
+
+    <h2 id="files">The folders</h2>
+    <table>
+      <thead>
+        <tr><th>Folder or file</th><th>What it is</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>hugo.toml</code></td><td>Site settings: address, title, and menu.</td></tr>
+        <tr><td><code>content/</code></td><td>One Markdown file per page. This is the writing.</td></tr>
+        <tr><td><code>data/</code></td><td>Structured CV facts. Templates loop over these.</td></tr>
+        <tr><td><code>layouts/</code></td><td>HTML templates. This is the structure.</td></tr>
+        <tr><td><code>assets/css/</code></td><td>CSS that Hugo compresses while building.</td></tr>
+        <tr><td><code>static/</code></td><td>Files copied as-is: the favicon and the font.</td></tr>
+        <tr><td><code>archetypes/</code></td><td>The blank form <code>hugo new</code> uses. New pages start as drafts.</td></tr>
+        <tr><td><code>public/</code></td><td>The built website. Generated. Do not edit it and do not commit it.</td></tr>
+        <tr><td><code>.github/workflows/hugo.yml</code></td><td>The script GitHub runs on every push to <code>main</code>.</td></tr>
+        <tr><td><code>hugo-guide.html</code></td><td>This file. It is not published.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="words">Words Hugo uses</h2>
+    <table>
+      <thead>
+        <tr><th>Word</th><th>Meaning here</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Front matter</td><td>The <code>---</code> block at the top of a Markdown file. Title, description, technologies, draft.</td></tr>
+        <tr><td>Draft</td><td>A page with <code>draft: true</code>. Left out of the live site until you delete that line.</td></tr>
+        <tr><td>Base URL</td><td>The public address, <code>https://revarazim.github.io/Hugo-Portfolio/</code>. The trailing slash matters. Internal links are built from it, which is why the site can live in a subfolder.</td></tr>
+        <tr><td>Partial</td><td>A small template included by other templates. The menu is a partial.</td></tr>
+        <tr><td>Markdown</td><td>The simple writing format in <code>content/</code>. <code>##</code> is a heading, <code>-</code> is a bullet, <code>[text](/path/)</code> is a link.</td></tr>
+        <tr><td>YAML</td><td>The format in <code>data/</code>. Indentation matters. Use spaces, not tabs. A list item starts with <code>-</code>.</td></tr>
+        <tr><td>Minify</td><td>Remove extra spaces from the finished HTML and CSS so the files are smaller.</td></tr>
+        <tr><td>Fingerprint</td><td>A hash in the CSS filename. When the CSS changes, the filename changes, so browsers download the new file.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="commands">Commands</h2>
+    <p>Open Terminal, then:</p>
+    <pre><code>cd "/Users/revar/Desktop/Hugo Portfolio"</code></pre>
+    <p>Preview the site on your computer. Leave this running. Hugo rebuilds when you save a file.</p>
+    <pre><code>hugo server --baseURL http://127.0.0.1:1313/</code></pre>
+    <p>Open <a href="http://127.0.0.1:1313/">http://127.0.0.1:1313/</a>. The extra <code>--baseURL</code> is only for your computer. The file <code>hugo.toml</code> still holds the GitHub address, and that address includes the folder <code>/Hugo-Portfolio/</code>. Without the local override, the preview asks for CSS inside that folder, the local server does not have it, and the page shows up unstyled.</p>
+    <p>To preview a page that is still a draft, add <code>--buildDrafts</code>:</p>
+    <pre><code>hugo server --buildDrafts --baseURL http://127.0.0.1:1313/</code></pre>
+    <p>Check the real build. Drafts are omitted, and any warning stops the command:</p>
+    <pre><code>hugo --minify --panicOnWarning</code></pre>
+    <p>That writes <code>public/</code>. You can ignore that folder.</p>
+    <p>Hugo on this machine is v0.170.1. There is no separate “extended” install to hunt for. This version already includes what used to be the extended edition.</p>
+
+    <h2 id="publish">How publishing works</h2>
+    <p>The live site is <a href="https://revarazim.github.io/Hugo-Portfolio/">https://revarazim.github.io/Hugo-Portfolio/</a>. The source is the GitHub repository <code>RevarAzim/Hugo-Portfolio</code>.</p>
+    <p>You do not upload <code>public/</code>. You push the source. GitHub’s Action installs Hugo, runs the build, and publishes the result. The workflow file is <code>.github/workflows/hugo.yml</code>. It runs on every push to <code>main</code>.</p>
+    <pre><code>git add .
+git commit -m "Describe what you changed."
+git push</code></pre>
+    <p>Wait about a minute, then refresh the live page. If the old page is still there, refresh again. Browsers keep the previous CSS for a short time.</p>
+    <p><code>git add .</code> will not add <code>public/</code>, because <code>.gitignore</code> excludes it. That is what you want.</p>
+    <p>The pages that are on the site now are not drafts. A new file you create with <code>hugo new</code> is a draft until you remove <code>draft: true</code>. If you push a draft, the live site will not include that page, and the build will still succeed.</p>
+
+    <h2 id="rules">Rules for this project</h2>
+    <ul>
+      <li>Only put facts you can point to: the CV, or something you have explicitly added, such as Signalize and the LinkedIn URL.</li>
+      <li>Do not invent employers, dates, numbers, skills, or links. If something is missing, write it in <code>OPEN-QUESTIONS.md</code> and decide later.</li>
+      <li>The phone number and LinkedIn profile are on the site because you asked for them. Do not add a home address, date of birth, or ID number.</li>
+      <li>The section about 19 AI coding agents was removed on purpose. Do not put it back unless you want it.</li>
+      <li>Signalize is not on the CV PDF. The text on the site is the description you supplied. Keep later edits inside that description.</li>
+      <li>No API keys or passwords anywhere in the project.</li>
+      <li>New pages start as drafts. Remove <code>draft: true</code> yourself when the page is ready.</li>
+    </ul>
+    <p class="note">A shorter copy of the build commands and the file map is in <code>AGENTS.md</code>, for whoever edits the project next. This HTML file is the one written for you.</p>
+  </div>
+</body>
+</html>

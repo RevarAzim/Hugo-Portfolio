@@ -4,7 +4,7 @@ description: A mobile app that maps real-world cellular signal strength across I
 dek: Crowdsourced cellular signal mapping
 status: Under development
 weight: 1
-tags:
+technologies:
   - Flutter
   - Dart
   - Kotlin

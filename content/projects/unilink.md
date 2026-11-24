@@ -4,7 +4,7 @@ description: A university academic library app for browsing and downloading reso
 dek: Academic resource platform
 status: University project
 weight: 4
-tags:
+technologies:
   - Dio
   - Retrofit
   - Clean Architecture

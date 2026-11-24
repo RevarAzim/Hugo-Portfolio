@@ -7,11 +7,7 @@
   {{- with $page.Description }}
   <p>{{ . }}</p>
   {{- end }}
-  {{- with $page.GetTerms "tags" }}
-  <ul class="tags" aria-label="Technologies">
-    {{- range . }}
-    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-    {{- end }}
-  </ul>
+  {{- with $page.Params.technologies }}
+  <p class="technologies">{{ delimit . ", " }}</p>
   {{- end }}
 </article>

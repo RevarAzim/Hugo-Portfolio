@@ -2,16 +2,6 @@
 <header class="page-intro">
   <h1>{{ .Title }}</h1>
 </header>
-{{- with site.Taxonomies.tags }}
-<nav class="tag-index no-print" aria-label="Technologies">
-  <h2>Browse by technology</h2>
-  <ul>
-    {{- range .Alphabetical }}
-    <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }})</li>
-    {{- end }}
-  </ul>
-</nav>
-{{- end }}
 <section class="project-list" aria-label="Projects">
   {{- range .RegularPages.ByWeight }}
     {{- partial "project-card.html" (dict "page" . "level" 3) -}}

@@ -1,7 +1,5 @@
 {{- $title := site.Title -}}
-{{- if eq .Kind "term" -}}
-  {{- $title = printf "Projects tagged %s · %s" .Title site.Title -}}
-{{- else if eq .Kind "404" -}}
+{{- if eq .Kind "404" -}}
   {{- $title = printf "Page not found · %s" site.Title -}}
 {{- else if not .IsHome -}}
   {{- $title = printf "%s · %s" .Title site.Title -}}
@@ -11,16 +9,12 @@
   {{- $desc = "This page does not exist." -}}
 {{- else if .Description -}}
   {{- $desc = .Description -}}
-{{- else if eq .Kind "term" -}}
-  {{- $desc = printf "Projects tagged %s by %s." .Title site.Title -}}
-{{- else if eq .Kind "taxonomy" -}}
-  {{- $desc = printf "Technologies used in projects by %s." site.Title -}}
 {{- else -}}
   {{- $desc = site.Params.description -}}
 {{- end -}}
 {{- $desc = $desc | plainify | strings.TrimSpace -}}
 {{- $ogType := "article" -}}
-{{- if or .IsHome (eq .Kind "taxonomy") (eq .Kind "term") (eq .Kind "404") -}}
+{{- if or .IsHome (eq .Kind "404") -}}
   {{- $ogType = "website" -}}
 {{- end -}}
 <meta charset="utf-8">

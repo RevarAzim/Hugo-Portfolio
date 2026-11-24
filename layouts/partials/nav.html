@@ -3,9 +3,6 @@
     {{- range site.Menus.main }}
     {{- $current := $.IsMenuCurrent .Menu . -}}
     {{- $ancestor := $.HasMenuCurrent .Menu . -}}
-    {{- if and (not $current) (not $ancestor) (eq .Identifier "projects") (in (slice "term" "taxonomy") $.Kind) }}
-      {{- $ancestor = true -}}
-    {{- end }}
     <li>
       <a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ else if $ancestor }} aria-current="true"{{ end }}>{{ .Name }}</a>
     </li>

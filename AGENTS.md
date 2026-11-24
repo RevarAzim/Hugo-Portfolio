@@ -40,7 +40,7 @@ If the site moves into a subfolder, set `baseURL` to that folder with a trailing
 
 | Path | Role |
 | --- | --- |
-| `hugo.toml` | `baseURL`, menu, taxonomies, site description |
+| `hugo.toml` | `baseURL`, menu, site description |
 | `data/profile.yaml` | Name, role, city, email, GitHub, summary |
 | `data/experience.yaml` | Jobs |
 | `data/education.yaml` | Degrees |
@@ -51,8 +51,7 @@ If the site moves into a subfolder, set `baseURL` to that folder with a trailing
 | `content/experience.md` | Jobs from `data/experience.yaml` |
 | `content/skills.md` | Skills from `data/skills.yaml` |
 | `content/contact.md` | Email and GitHub |
-| `content/projects/` | One Markdown file per project |
-| `content/tags/_index.md` | Technology index |
+| `content/projects/` | One Markdown file per project. `technologies` is plain text. |
 | `layouts/_default/baseof.html` | Document shell: skip link, header, main, footer |
 | `layouts/partials/head.html` | Title, description, canonical, Open Graph, favicon, CSS |
 | `layouts/partials/header.html` | Name link on inner pages |
@@ -63,10 +62,8 @@ If the site moves into a subfolder, set `baseURL` to that folder with a trailing
 | `layouts/_default/experience.html` | Experience |
 | `layouts/_default/skills.html` | Skills |
 | `layouts/_default/contact.html` | Contact |
-| `layouts/projects/list.html` | Project list and technology links |
+| `layouts/projects/list.html` | Project list |
 | `layouts/projects/single.html` | One project |
-| `layouts/_default/term.html` | One technology |
-| `layouts/_default/terms.html` | All technologies |
 | `layouts/_default/list.html` | Fallback list |
 | `layouts/_default/single.html` | Fallback page |
 | `layouts/404.html` | Missing page |
