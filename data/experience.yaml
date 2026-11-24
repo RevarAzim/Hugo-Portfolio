@@ -1,0 +1,11 @@
+- role: Flutter Developer Intern
+  organization: TechnoBase
+  start: "2025-11"
+  start_label: November 2025
+  end: "2026-04"
+  end_label: April 2026
+  project: anyprompts
+  project_label: AnyPrompts
+  points:
+    - Co-architected AnyPrompts, a community-driven application, pairing strict Clean Architecture with BLoC and Freezed for immutable state management.
+    - Integrated Google Sign-In and managed complex state transitions.

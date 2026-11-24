@@ -1,0 +1,18 @@
+<ul class="entries">
+  {{- range hugo.Data.education }}
+  <li>
+    <h{{ $.level }}>{{ .degree }}</h{{ $.level }}>
+    <p class="entry-meta">
+      <span>{{ .school }}</span>
+      <span class="dates"><time datetime="{{ .datetime }}">{{ .dates }}</time></span>
+    </p>
+    {{- with .points }}
+    <ul class="points">
+      {{- range . }}
+      <li>{{ . }}</li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </li>
+  {{- end }}
+</ul>

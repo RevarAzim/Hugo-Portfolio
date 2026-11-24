@@ -1,0 +1,8 @@
+<header class="site-header">
+  <div class="wrap">
+    {{- if not .IsHome }}
+    <a class="wordmark" href="{{ "" | relURL }}">{{ hugo.Data.profile.name }}</a>
+    {{- end }}
+    {{- partial "nav.html" . -}}
+  </div>
+</header>

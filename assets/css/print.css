@@ -1,0 +1,44 @@
+@page {
+  margin: 1.5cm;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  border-top: none;
+  font-size: 11pt;
+}
+
+.skip-link,
+.nav,
+.no-print,
+.home .site-footer {
+  display: none !important;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a.print-href[href^="http"]::after {
+  content: " (" attr(href) ")";
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.project-card,
+.entries > li,
+.ledger {
+  break-inside: avoid;
+}
+
+h1,
+h2,
+h3 {
+  break-after: avoid;
+}
+
+.site-footer {
+  border-top: 1px solid #000;
+}

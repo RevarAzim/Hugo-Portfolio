@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{- $p := hugo.Data.profile -}}
+<article>
+  <header class="page-intro">
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <section class="ledger" aria-labelledby="summary-heading">
+    <h2 id="summary-heading">Summary</h2>
+    <p class="summary">{{ $p.summary }}</p>
+  </section>
+
+  <section class="ledger" aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    <div>
+      {{- partial "education-list.html" (dict "level" 3) -}}
+    </div>
+  </section>
+
+  <section class="ledger" aria-labelledby="languages-heading">
+    <h2 id="languages-heading">Languages</h2>
+    <div>
+      {{- partial "languages-list.html" . -}}
+    </div>
+  </section>
+</article>
+{{ end }}

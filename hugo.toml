@@ -1,0 +1,60 @@
+# GitHub Pages user site for https://github.com/RevarAzim
+# The repository that publishes this must be named RevarAzim.github.io.
+# Trailing slash is required. If the site moves into a subfolder, change
+# baseURL to that folder, for example "https://example.com/cv/".
+baseURL = "https://revarazim.github.io/"
+title = "Revar Azim Muhammed"
+locale = "en-us"
+enableRobotsTXT = true
+disableKinds = ["RSS"]
+
+[params]
+  description = "Software engineer and Flutter developer in Sulaymaniyah, Iraq."
+
+# Tag pages live at /tags/ and /tags/<technology>/.
+[taxonomies]
+  tag = "tags"
+
+# pageRef lets Hugo mark the current item. url is the fallback path.
+# Paths have no leading slash except Home, so a subfolder baseURL still works.
+[[menus.main]]
+  name = "Home"
+  pageRef = "/"
+  url = "/"
+  identifier = "home"
+  weight = 10
+
+[[menus.main]]
+  name = "About"
+  pageRef = "/about"
+  url = "about/"
+  identifier = "about"
+  weight = 20
+
+[[menus.main]]
+  name = "Experience"
+  pageRef = "/experience"
+  url = "experience/"
+  identifier = "experience"
+  weight = 30
+
+[[menus.main]]
+  name = "Skills"
+  pageRef = "/skills"
+  url = "skills/"
+  identifier = "skills"
+  weight = 40
+
+[[menus.main]]
+  name = "Projects"
+  pageRef = "/projects"
+  url = "projects/"
+  identifier = "projects"
+  weight = 50
+
+[[menus.main]]
+  name = "Contact"
+  pageRef = "/contact"
+  url = "contact/"
+  identifier = "contact"
+  weight = 60

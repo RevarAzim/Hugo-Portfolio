@@ -1,0 +1,5 @@
+{{- $p := hugo.Data.profile -}}
+<ul class="contact-links">
+  <li><a rel="me" href="mailto:{{ $p.email }}">{{ $p.email }}</a></li>
+  <li><a rel="me external" href="{{ $p.github }}"{{ if not .verbose }} class="print-href"{{ end }}>{{ if .verbose }}{{ $p.github }}{{ else }}GitHub{{ end }}</a></li>
+</ul>

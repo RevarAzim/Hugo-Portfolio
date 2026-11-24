@@ -1,0 +1,48 @@
+{{- $title := site.Title -}}
+{{- if eq .Kind "term" -}}
+  {{- $title = printf "Projects tagged %s · %s" .Title site.Title -}}
+{{- else if eq .Kind "404" -}}
+  {{- $title = printf "Page not found · %s" site.Title -}}
+{{- else if not .IsHome -}}
+  {{- $title = printf "%s · %s" .Title site.Title -}}
+{{- end -}}
+{{- $desc := "" -}}
+{{- if eq .Kind "404" -}}
+  {{- $desc = "This page does not exist." -}}
+{{- else if .Description -}}
+  {{- $desc = .Description -}}
+{{- else if eq .Kind "term" -}}
+  {{- $desc = printf "Projects tagged %s by %s." .Title site.Title -}}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $desc = printf "Technologies used in projects by %s." site.Title -}}
+{{- else -}}
+  {{- $desc = site.Params.description -}}
+{{- end -}}
+{{- $desc = $desc | plainify | strings.TrimSpace -}}
+{{- $ogType := "article" -}}
+{{- if or .IsHome (eq .Kind "taxonomy") (eq .Kind "term") (eq .Kind "404") -}}
+  {{- $ogType = "website" -}}
+{{- end -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3f2ee">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:locale" content="en_US">
+{{- if eq .Kind "404" }}
+<meta name="robots" content="noindex">
+{{- end }}
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+{{- /* No leading slash: relURL and RelPermalink keep a subfolder baseURL. */ -}}
+{{- with resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{- end }}
+{{- with resources.Get "css/print.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" media="print" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{- end }}

@@ -1,0 +1,381 @@
+/* Light ledger. Instrument Sans is licensed under the SIL Open Font License; see /fonts/OFL.txt. */
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/instrument-sans-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/instrument-sans-600.ttf") format("truetype");
+}
+
+:root {
+  --paper: #f3f2ee;
+  --ink: #1c1c1b;
+  --muted: #3a3834;
+  --line: #7f7b72;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Instrument Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-weight: 400;
+  border-top: 3px solid var(--ink);
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 10;
+  padding: 0.5rem 0.8rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.wrap {
+  width: min(46rem, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.site-header {
+  padding: 1.75rem 0 0.25rem;
+}
+
+.wordmark {
+  display: inline-block;
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.15rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 0;
+}
+
+.nav a[aria-current="page"] {
+  font-weight: 600;
+  text-decoration-thickness: 3px;
+}
+
+.nav a[aria-current="true"] {
+  text-decoration-thickness: 3px;
+}
+
+main {
+  padding-bottom: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+}
+
+.home h1 {
+  font-size: clamp(2.6rem, 8vw, 4.15rem);
+  letter-spacing: -0.04em;
+}
+
+.page-intro {
+  margin: 1.75rem 0 0.5rem;
+}
+
+.role {
+  margin: 0.85rem 0 0;
+  font-size: 1.15rem;
+}
+
+.place,
+.status,
+.dek {
+  margin: 0.3rem 0 0;
+}
+
+.place,
+.status {
+  color: var(--muted);
+}
+
+.dek {
+  font-size: 1.15rem;
+}
+
+.summary {
+  max-width: 38rem;
+  margin: 1.15rem 0 0;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+}
+
+.contact-links a {
+  overflow-wrap: anywhere;
+}
+
+.ledger {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 0.75rem 1.75rem;
+  border-top: 1px solid var(--line);
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+}
+
+.ledger > h2,
+.tech-heading,
+.tag-index h2 {
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entries h2,
+.entries h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.entries > li + li {
+  margin-top: 1.6rem;
+}
+
+.entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+  margin: 0.2rem 0 0.55rem;
+  color: var(--muted);
+}
+
+.points {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.points li + li {
+  margin-top: 0.45rem;
+}
+
+.entry-link {
+  margin: 0.7rem 0 0;
+}
+
+.skills,
+.languages {
+  margin: 0;
+}
+
+.skills > div,
+.languages > div {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+  gap: 0.35rem 1.25rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.skills > div:first-child,
+.languages > div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.skills dt,
+.languages dt {
+  margin: 0;
+  font-weight: 600;
+}
+
+.skills dd,
+.languages dd {
+  margin: 0;
+}
+
+.skills ul,
+.languages ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.project-card {
+  border-top: 1px solid var(--line);
+  padding: 1.15rem 0;
+}
+
+.ledger .project-card:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.project-card h2,
+.project-card h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.project-card p {
+  margin: 0.4rem 0 0;
+}
+
+.tags,
+.tag-index ul,
+.tag-index-list,
+.plain-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+
+.tag-index {
+  margin-top: 1.5rem;
+}
+
+.tech-heading {
+  margin-top: 2rem;
+}
+
+.prose {
+  margin-top: 1.35rem;
+  overflow-wrap: break-word;
+}
+
+.prose h2 {
+  margin: 1.8rem 0 0.45rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.prose p,
+.prose ul {
+  margin: 0.7rem 0;
+}
+
+.prose ul {
+  padding-left: 1.15rem;
+}
+
+.prose li + li {
+  margin-top: 0.45rem;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+}
+
+.back-link {
+  margin-top: 1.5rem;
+}
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 1.15rem 0 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-id {
+  margin: 0;
+}
+
+@media (max-width: 42rem) {
+  .wrap {
+    width: min(46rem, calc(100% - 2rem));
+  }
+
+  .ledger,
+  .skills > div,
+  .languages > div {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}

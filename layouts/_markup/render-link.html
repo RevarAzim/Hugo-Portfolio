@@ -1,0 +1,16 @@
+{{- /*
+  Internal Markdown links are passed to relURL so a subfolder baseURL is kept.
+  A leading slash would skip that prefix (relURL "/about/" stays "/about/"),
+  so it is removed first. Absolute, protocol-relative, mailto, tel, and # links
+  are left unchanged.
+*/ -}}
+{{- $raw := .Destination -}}
+{{- $href := $raw -}}
+{{- $external := or (strings.HasPrefix $raw "http://") (strings.HasPrefix $raw "https://") (strings.HasPrefix $raw "//") -}}
+{{- $parsed := urls.Parse $raw -}}
+{{- if or $parsed.IsAbs (strings.HasPrefix $raw "//") (strings.HasPrefix $raw "mailto:") (strings.HasPrefix $raw "tel:") (strings.HasPrefix $raw "#") -}}
+  {{- $href = $raw -}}
+{{- else -}}
+  {{- $href = strings.TrimPrefix "/" $raw | relURL -}}
+{{- end -}}
+<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} rel="external"{{ end }}>{{ .Text }}</a>

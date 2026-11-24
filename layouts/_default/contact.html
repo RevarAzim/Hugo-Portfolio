@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{- $p := hugo.Data.profile -}}
+<article>
+  <header class="page-intro">
+    <h1>{{ .Title }}</h1>
+    <p class="role">{{ $p.role }}</p>
+    <p class="place">{{ $p.city }}, {{ $p.country }}</p>
+  </header>
+  {{- partial "contact-links.html" (dict "verbose" true) -}}
+</article>
+{{ end }}

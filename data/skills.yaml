@@ -1,0 +1,18 @@
+- group: Frameworks & Languages
+  items:
+    - Flutter
+    - Dart
+- group: Architecture & State
+  items:
+    - Clean Architecture
+    - Feature-First
+    - BLoC
+    - Freezed
+- group: Tools & Networking
+  items:
+    - Dio
+    - Retrofit
+    - Git
+    - Cursor
+    - VS Code
+    - Google Play Console

@@ -1,0 +1,6 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-id">{{ hugo.Data.profile.name }} · {{ hugo.Data.profile.city }}, {{ hugo.Data.profile.country }}</p>
+    {{- partial "contact-links.html" (dict "verbose" false) -}}
+  </div>
+</footer>

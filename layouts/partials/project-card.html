@@ -1,0 +1,17 @@
+{{- $page := .page -}}
+<article class="project-card">
+  <h{{ .level }}><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h{{ .level }}>
+  {{- with $page.Params.status }}
+  <p class="status">{{ . }}</p>
+  {{- end }}
+  {{- with $page.Description }}
+  <p>{{ . }}</p>
+  {{- end }}
+  {{- with $page.GetTerms "tags" }}
+  <ul class="tags" aria-label="Technologies">
+    {{- range . }}
+    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</article>

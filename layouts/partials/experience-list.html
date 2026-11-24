@@ -1,0 +1,20 @@
+<ul class="entries">
+  {{- range hugo.Data.experience }}
+  {{- $item := . -}}
+  <li id="{{ $item.organization | urlize }}">
+    <h{{ $.level }}>{{ $item.role }}</h{{ $.level }}>
+    <p class="entry-meta">
+      <span>{{ $item.organization }}</span>
+      <span class="dates"><time datetime="{{ $item.start }}">{{ $item.start_label }}</time> – <time datetime="{{ $item.end }}">{{ $item.end_label }}</time></span>
+    </p>
+    <ul class="points">
+      {{- range $item.points }}
+      <li>{{ . }}</li>
+      {{- end }}
+    </ul>
+    {{- with $item.project }}
+    <p class="entry-link">Project: <a href="{{ printf "projects/%s/" . | relURL }}">{{ $item.project_label }}</a></p>
+    {{- end }}
+  </li>
+  {{- end }}
+</ul>

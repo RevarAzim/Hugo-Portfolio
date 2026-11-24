@@ -1,0 +1,8 @@
+{{ define "main" }}
+<article>
+  <header class="page-intro">
+    <h1>{{ .Title }}</h1>
+  </header>
+  {{- partial "experience-list.html" (dict "level" 2) -}}
+</article>
+{{ end }}

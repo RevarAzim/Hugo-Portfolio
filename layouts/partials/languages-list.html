@@ -1,0 +1,8 @@
+<dl class="languages">
+  {{- range hugo.Data.languages }}
+  <div>
+    <dt>{{ .name }}</dt>
+    <dd>{{ .level }}</dd>
+  </div>
+  {{- end }}
+</dl>

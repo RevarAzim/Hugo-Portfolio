@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article>
+  <header class="page-intro">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.dek }}<p class="dek">{{ . }}</p>{{ end }}
+    {{- with .Params.status }}<p class="status">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+  {{- with .GetTerms "tags" }}
+  <h2 class="tech-heading">Technologies</h2>
+  <ul class="tags" aria-label="Technologies">
+    {{- range . }}
+    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  <p class="back-link no-print"><a href="{{ "projects/" | relURL }}">All projects</a></p>
+</article>
+{{ end }}

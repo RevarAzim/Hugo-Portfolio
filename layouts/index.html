@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{- $p := hugo.Data.profile -}}
+<article class="cv">
+  <header class="intro">
+    <h1>{{ $p.name }}</h1>
+    <p class="role">{{ $p.role }}</p>
+    <p class="place">{{ $p.city }}, {{ $p.country }}</p>
+    {{- partial "contact-links.html" (dict "verbose" false) -}}
+    <p class="summary">{{ $p.summary }}</p>
+  </header>
+
+  <section class="ledger" id="skills" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills</h2>
+    <div>
+      {{- partial "skills-list.html" . -}}
+    </div>
+  </section>
+
+  <section class="ledger" id="experience" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Experience</h2>
+    <div>
+      {{- partial "experience-list.html" (dict "level" 3) -}}
+    </div>
+  </section>
+
+  <section class="ledger" id="projects" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Projects</h2>
+    <div>
+      {{- $projects := where site.RegularPages "Section" "projects" -}}
+      {{- range $projects.ByWeight }}
+        {{- partial "project-card.html" (dict "page" . "level" 3) -}}
+      {{- end }}
+    </div>
+  </section>
+
+  <section class="ledger" id="education" aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    <div>
+      {{- partial "education-list.html" (dict "level" 3) -}}
+    </div>
+  </section>
+
+  <section class="ledger" id="languages" aria-labelledby="languages-heading">
+    <h2 id="languages-heading">Languages</h2>
+    <div>
+      {{- partial "languages-list.html" . -}}
+    </div>
+  </section>
+</article>
+{{ end }}
