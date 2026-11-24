@@ -3,10 +3,16 @@
 }
 
 body {
+  display: block;
+  min-height: 0;
   background: #fff;
   color: #000;
   border-top: none;
   font-size: 11pt;
+}
+
+main {
+  flex: none;
 }
 
 .skip-link,

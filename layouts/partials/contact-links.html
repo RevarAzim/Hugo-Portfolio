@@ -1,7 +1,27 @@
 {{- $p := hugo.Data.profile -}}
-<ul class="contact-links">
-  <li><a rel="me" href="mailto:{{ $p.email }}">{{ $p.email }}</a></li>
-  <li><a href="{{ $p.phone_href | safeURL }}">{{ $p.phone }}</a></li>
-  <li><a rel="me external" href="{{ $p.linkedin }}"{{ if not .verbose }} class="print-href"{{ end }}>{{ if .verbose }}{{ $p.linkedin }}{{ else }}LinkedIn{{ end }}</a></li>
-  <li><a rel="me external" href="{{ $p.github }}"{{ if not .verbose }} class="print-href"{{ end }}>{{ if .verbose }}{{ $p.github }}{{ else }}GitHub{{ end }}</a></li>
+<ul class="contact-links{{ if .verbose }} contact-links-stacked{{ end }}">
+  <li>
+    <a rel="me" href="mailto:{{ $p.email }}">
+      {{- if .verbose }}{{ partial "icon.html" "mail" }}{{ end -}}
+      <span>{{ $p.email }}</span>
+    </a>
+  </li>
+  <li>
+    <a href="{{ $p.phone_href | safeURL }}">
+      {{- if .verbose }}{{ partial "icon.html" "phone" }}{{ end -}}
+      <span>{{ $p.phone }}</span>
+    </a>
+  </li>
+  <li>
+    <a class="print-href" rel="me external" href="{{ $p.linkedin }}">
+      {{- if .verbose }}{{ partial "icon.html" "linkedin" }}{{ end -}}
+      <span>LinkedIn</span>
+    </a>
+  </li>
+  <li>
+    <a class="print-href" rel="me external" href="{{ $p.github }}">
+      {{- if .verbose }}{{ partial "icon.html" "github" }}{{ end -}}
+      <span>GitHub</span>
+    </a>
+  </li>
 </ul>
