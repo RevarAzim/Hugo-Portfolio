@@ -84,7 +84,7 @@ If the site moves into a subfolder, set `baseURL` to that folder with a trailing
 
 - Use only facts from the CV and from Revar. Do not invent employers, dates, numbers, skills, or links.
 - If something is missing or contradicts itself, add it to `OPEN-QUESTIONS.md` and ask. Do not guess.
-- Never publish a phone number, home address, date of birth, or ID number. The CV has a phone number; it is not stored in this project.
+- Do not publish a home address, date of birth, or ID number. The phone number and LinkedIn profile are on the site because Revar asked for them: 0770 966 4486 and https://linkedin.com/in/revar-azim. The call link uses tel:+9647709664486.
 - No secrets or API keys.
 - New content pages start as `draft: true`. Revar undrafts them.
 - The "19 local AI coding agents" section was removed at Revar's request, including the Workflow Automation skills and the summary clause about custom AI workflows. Do not put that material back unless asked.

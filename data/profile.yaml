@@ -1,9 +1,11 @@
-# Publishable facts only. The CV's phone number is intentionally absent.
 name: Revar Azim Muhammed
 role: Software Engineer & Flutter Developer
 city: Sulaymaniyah
 country: Iraq
 email: revar.azim@gmail.com
+phone: "0770 966 4486"
+phone_href: "tel:+9647709664486"
+linkedin: https://linkedin.com/in/revar-azim
 github: https://github.com/RevarAzim
 github_handle: RevarAzim
 summary: >-

@@ -4,14 +4,12 @@ Nothing in the site was guessed. These items are missing, were left out on purpo
 
 ## Left out on purpose
 
-- The CV includes a phone number. It is not stored anywhere in this project.
 - The section about 19 local AI coding agents is not on the site, because you asked for it to be removed.
 - The Core Competencies group "Workflow Automation" (Prompt Engineering, Custom AI Coding Agents) was removed with that work.
 - The CV summary continues "and engineer custom AI workflows that automate boilerplate and enforce architectural precision." The site stops at "Proven ability to build robust cross-platform applications."
 
 ## Not on the CV, so not published
 
-- LinkedIn. The CV gives the handle `revar-azim` and no full URL.
 - A public URL for Sat. The CV says Google Play (Closed Testing) only.
 - A public URL for UniLink.
 - A public URL for AnyPrompts.
