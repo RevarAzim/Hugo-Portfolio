@@ -3,7 +3,6 @@ title: UniLink
 description: A university academic library app for browsing and downloading resources, using Dio, Retrofit, Clean Architecture, and BLoC.
 dek: Academic resource platform
 status: University project
-draft: true
 weight: 4
 tags:
   - Dio

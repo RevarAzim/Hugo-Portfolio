@@ -3,7 +3,6 @@ title: AnyPrompts
 description: A community-driven application co-architected at TechnoBase with Clean Architecture, BLoC, and Freezed.
 dek: Community-driven application
 status: Built during the TechnoBase internship (November 2025 – April 2026)
-draft: true
 weight: 2
 tags:
   - Clean Architecture

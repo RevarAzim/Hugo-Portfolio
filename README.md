@@ -14,4 +14,4 @@ Check the production build. Output goes to `public/`:
 hugo --minify --panicOnWarning
 ```
 
-Content pages are drafts until `draft: true` is removed, so that command currently writes a site with no CV pages.
+The published site is https://revarazim.github.io/Hugo-Portfolio/. Pushes to `main` deploy it.

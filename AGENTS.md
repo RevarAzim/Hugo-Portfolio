@@ -28,11 +28,11 @@ To check the draft pages with the same flags:
 hugo --minify --panicOnWarning --buildDrafts
 ```
 
-Every content page is `draft: true` until Revar removes that line. Until then, `hugo --minify --panicOnWarning` succeeds but `public/` has no CV pages. `sitemap.xml` lists only published pages.
+`sitemap.xml` lists only published pages. New files from `hugo new` still start as `draft: true`.
 
 ## Hosting
 
-`baseURL` in `hugo.toml` is `https://revarazim.github.io/` (GitHub Pages user site). The GitHub repository must be named `RevarAzim.github.io`. Publish the contents of `public/` after the pages are undrafted. Do not deploy unless asked.
+The live site is the GitHub Pages project site for `RevarAzim/Hugo-Portfolio`: `baseURL` is `https://revarazim.github.io/Hugo-Portfolio/`. Pushing to `main` runs `.github/workflows/hugo.yml`, which builds the site and deploys `public/`. Do not commit `public/`. Do not deploy unless asked.
 
 If the site moves into a subfolder, set `baseURL` to that folder with a trailing slash, for example `https://example.com/cv/`. Internal Markdown links go through `layouts/_markup/render-link.html`, which strips one leading slash and passes the path to `relURL`. A leading slash would skip the subfolder. Template links use `relURL` or `.RelPermalink` the same way. Stylesheet and font URLs are relative to the CSS file, so they follow the folder too.
 

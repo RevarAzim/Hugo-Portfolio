@@ -3,7 +3,6 @@ title: Sat
 description: A low-latency chess clock in Google Play closed testing, built with Feature-First Architecture.
 dek: Chess clock application
 status: Google Play (Closed Testing)
-draft: true
 weight: 3
 tags:
   - Flutter

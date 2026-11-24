@@ -3,7 +3,6 @@ title: Signalize
 description: A mobile app that maps real-world cellular signal strength across Iraq and the Kurdistan Region.
 dek: Crowdsourced cellular signal mapping
 status: Under development
-draft: true
 weight: 1
 tags:
   - Flutter

@@ -1,8 +1,6 @@
-# GitHub Pages user site for https://github.com/RevarAzim
-# The repository that publishes this must be named RevarAzim.github.io.
-# Trailing slash is required. If the site moves into a subfolder, change
-# baseURL to that folder, for example "https://example.com/cv/".
-baseURL = "https://revarazim.github.io/"
+# GitHub Pages project site: https://revarazim.github.io/Hugo-Portfolio/
+# Trailing slash is required. The deploy workflow also passes this baseURL.
+baseURL = "https://revarazim.github.io/Hugo-Portfolio/"
 title = "Revar Azim Muhammed"
 locale = "en-us"
 enableRobotsTXT = true

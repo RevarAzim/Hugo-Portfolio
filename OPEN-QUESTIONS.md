@@ -25,7 +25,7 @@ Nothing in the site was guessed. These items are missing, were left out on purpo
 - UniLink is not tagged Flutter. Its bullets name Dio, Retrofit, Clean Architecture, and BLoC.
 - Signalize's stack is on the project only. It is not in `data/skills.yaml`, because those tools are not in the CV competencies. Tags are Flutter, Dart, Kotlin, MapLibre, Geolocator, Laravel, PostgreSQL, and H3. MethodChannel, TelephonyManager, h3-php, maplibre_gl, and GeoJSON stay in the project text.
 - GitHub is https://github.com/RevarAzim. That matches the CV handle, and the account exists.
-- `baseURL` is https://revarazim.github.io/ for a GitHub Pages user site.
+- The live site is https://revarazim.github.io/Hugo-Portfolio/ because the repository is `Hugo-Portfolio`, not a user site named `RevarAzim.github.io`.
 - The header and the page title use the full name, Revar Azim Muhammed.
 
 ## Dates as written
